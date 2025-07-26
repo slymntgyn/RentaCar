@@ -1,10 +1,15 @@
 ﻿using Application.Features.CQRS.Handlers.AboutHandlers;
 using Application.Features.CQRS.Handlers.BannerHandlers;
 using Application.Features.CQRS.Handlers.BrandHandlers;
+using Application.Features.CQRS.Handlers.CarHandlers;
+using Application.Features.CQRS.Handlers.CategoryHandlers;
+using Application.Features.CQRS.Handlers.ContactHandlers;
 using Application.Interfaces;
+using Application.Interfaces.CarInterfaces;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Context;
 using Persistence.Repositories;
+using Persistence.Repositories.CarRepositories;
 
 namespace WebApi.Infrastructure.Extensions
 {
@@ -34,6 +39,8 @@ namespace WebApi.Infrastructure.Extensions
             // DbContext registration (already handled in ConfigureDbContext)
             services.AddScoped<CarBookContext, CarBookContext>();
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped(typeof(ICarRepository), typeof(CarRepository));
+
 
             // CQRS Handlers registration
             //About Handlers
@@ -54,6 +61,31 @@ namespace WebApi.Infrastructure.Extensions
             services.AddScoped<CreateBrandCommendsHandler>();
             services.AddScoped<UpdateBrandCommendsHandler>();
             services.AddScoped<RemoveBrandCommendsHandler>();
+
+            // Car Handlers
+            services.AddScoped<CreateCarCommandsHandler>();
+            services.AddScoped<GetCarByIdQueryHandler>();
+            services.AddScoped<GetCarQueryHandler>();
+            services.AddScoped<RemoveCarCommendsHandler>();
+            services.AddScoped<UpdateCarCommendsHandler>();
+            services.AddScoped<GetCarWithBrandQueryHandler>();
+
+            //Category Handlers
+            services.AddScoped<CreateCategoryCommandsHandler>();
+            services.AddScoped<GetCategoryByIdQueryHandler>();
+            services.AddScoped<GetCategoryQueryHandler>();
+            services.AddScoped<RemoveCategoryCommendsHandler>();
+            services.AddScoped<UpdateCategoryCommendsHandler>();
+
+            //Contact Handlers
+            services.AddScoped<CreateContactCommandsHandler>();
+            services.AddScoped<GetContactByIdQueryHandler>();
+            services.AddScoped<GetContactQueryHandler>();
+            services.AddScoped<RemoveContactCommandsHandler>();
+            services.AddScoped<UpdateContactCommandsHandler>();
+
+
+
         }
 
     }

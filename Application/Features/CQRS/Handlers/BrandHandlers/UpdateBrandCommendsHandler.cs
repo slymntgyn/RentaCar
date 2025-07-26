@@ -18,7 +18,6 @@ namespace Application.Features.CQRS.Handlers.BrandHandlers
             if (brand != null)
             {
                 brand.Name = request.Name;
-                brand.Cars = request.Cars;
                 await _Repository.UpdateAsync(brand);
             }
             else

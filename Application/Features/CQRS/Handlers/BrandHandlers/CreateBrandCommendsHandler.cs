@@ -16,8 +16,7 @@ namespace Application.Features.CQRS.Handlers.BrandHandlers
         {
             await _Repository.CreateAsync(new Brand
             {
-                Name = request.Name,
-                Cars = request.Cars
+                Name = request.Name
             });
         }
     }

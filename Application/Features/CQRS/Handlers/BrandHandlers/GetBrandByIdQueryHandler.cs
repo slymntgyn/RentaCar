@@ -19,8 +19,7 @@ namespace Application.Features.CQRS.Handlers.BrandHandlers
             return new GetBrandByIdQueryResult
             {
                 Id = brand?.Id ?? 0,
-                Name = brand?.Name,
-                Cars = brand?.Cars
+                Name = brand?.Name
             };
         }
     }

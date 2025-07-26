@@ -18,8 +18,7 @@ namespace Application.Features.CQRS.Handlers.BrandHandlers
             return banners.Select(b => new GetBrandQueryResult
             {
                 Id = b.Id,
-                Name = b.Name,
-                Cars = b.Cars
+                Name = b.Name
             }).ToList();
         }
     }
