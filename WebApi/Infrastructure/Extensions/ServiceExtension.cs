@@ -84,6 +84,8 @@ namespace WebApi.Infrastructure.Extensions
             services.AddScoped<RemoveContactCommandsHandler>();
             services.AddScoped<UpdateContactCommandsHandler>();
 
+            //add mediatR
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(service).Assembly));
 
 
         }
