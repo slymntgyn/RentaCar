@@ -19,7 +19,7 @@ namespace Application.Features.Mediator.Handlers.FeatureHandlers
             Feature? feature = await _repository.GetByIdAsync(request.ID);
             if (feature != null)
             {
-                feature.Name = request.FeatureName;
+                feature.Name = request.Name;
                 await _repository.UpdateAsync(feature);
             }
             else

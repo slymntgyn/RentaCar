@@ -10,6 +10,11 @@ namespace Application.Features.Mediator.Handlers.FeatureHandlers
 
         private readonly IRepository<Feature> _repository;
 
+        public RemoveFeatureCommandHandler(IRepository<Feature> repository)
+        {
+            _repository = repository;
+        }
+
         public async Task Handle(RemoveFeatureCommand request, CancellationToken cancellationToken)
         {
             Feature? value = await _repository.GetByIdAsync(request.Id);

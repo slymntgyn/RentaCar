@@ -1,4 +1,5 @@
-﻿using Scalar.AspNetCore;
+﻿using Application.Services;
+using Scalar.AspNetCore;
 using WebApi.Infrastructure.Extensions;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
@@ -6,6 +7,8 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Servis bağımlılıklarını yapılandırma
 builder.Services.ConfigureCustomServices();
+// MediatR yapılandırması
+builder.Services.AddApplicationService(builder.Configuration);
 
 // Controller ve OpenAPI tanımlamaları
 builder.Services.AddControllers();
